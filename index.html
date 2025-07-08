@@ -15,7 +15,7 @@
         const ul = document.getElementById('user-list');
         users.forEach(user => {
           const li = document.createElement('li');
-          li.textContent = `${user.firstname} ${user.lastname} - ${user.email}`;
+          li.textContent = `${user.firstname} ${user.lastname} — ${user.email}, Phone: ${user.phonenumber}`;
           ul.appendChild(li);
         });
       })
