@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>User Data</title>
+  <meta charset="UTF-8">
+  <title>User Info</title>
 </head>
 <body>
-  <h1>User List</h1>
-  <ul id="user-list"></ul>
+  <h1>User Information</h1>
+  <ul id="user-info"></ul>
 
   <script>
-  fetch('nane21.json')
-    .then(response => response.json())
-    .then(user => {
-      const ul = document.getElementById('user-list');
-      for (const key in user) {
-        const li = document.createElement('li');
-        li.textContent = `${key}: ${user[key]}`;
-        ul.appendChild(li);
-      }
-    })
-    .catch(err => console.error('Failed to load user:', err));
-</script>
-
+    fetch('nane21.json')
+      .then(response => response.json())
+      .then(user => {
+        const ul = document.getElementById('user-info');
+        for (const key in user) {
+          const li = document.createElement('li');
+          li.textContent = `${key}: ${user[key]}`;
+          ul.appendChild(li);
+        }
+      })
+      .catch(err => {
+        console.error('Failed to load nane21.json:', err);
+      });
+  </script>
 </body>
 </html>
