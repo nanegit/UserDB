@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>User Data</title>
+</head>
+<body>
+  <h1>User List</h1>
+  <ul id="user-list"></ul>
+
+  <script>
+    fetch('nane21.json')
+      .then(response => response.json())
+      .then(users => {
+        const ul = document.getElementById('user-list');
+        users.forEach(user => {
+          const li = document.createElement('li');
+          li.textContent = `${user.name} (${user.email})`;
+          ul.appendChild(li);
+        });
+      })
+      .catch(err => console.error('Failed to load users:', err));
+  </script>
+</body>
+</html>
