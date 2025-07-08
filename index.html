@@ -9,17 +9,18 @@
   <ul id="user-list"></ul>
 
   <script>
-    fetch('nane21.json')  // ✅ JSON ֆայլի ուղին
-      .then(response => response.json())
-      .then(users => {
-        const ul = document.getElementById('user-list');
-        users.forEach(user => {
-          const li = document.createElement('li');
-          li.textContent = `${user.name} (${user.email})`; // ✅ name և email դաշտեր
-          ul.appendChild(li);
-        });
-      })
-      .catch(err => console.error('Failed to load users:', err));  // ❗ Console-ում կտպի սխալ, եթե JSON-ը բացվել չկարողանա
-  </script>
+  fetch('nane21.json')
+    .then(response => response.json())
+    .then(user => {
+      const ul = document.getElementById('user-list');
+      for (const key in user) {
+        const li = document.createElement('li');
+        li.textContent = `${key}: ${user[key]}`;
+        ul.appendChild(li);
+      }
+    })
+    .catch(err => console.error('Failed to load user:', err));
+</script>
+
 </body>
 </html>
